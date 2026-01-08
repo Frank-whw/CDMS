@@ -1,0 +1,22 @@
+[project]
+site_name = "当代数据管理系统"
+site_url = "https://frank-whw.github.io/CDMS/"
+docs_dir = "docs"
+site_dir = "site"
+use_directory_urls = false
+
+[theme]
+name = "modern"
+palette = { primary = "indigo", accent = "indigo" }
+features = ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top"]
+
+[plugins]
+search = {}
+
+[markdown_extensions]
+codehilite = {}
+toc = { permalink = true }
+
+[extra]
+author = "周烜 周欢 赵明昊"
+description = "当代数据管理系统 - 涵盖关系数据库、文档数据库和图数据库的综合教程"
