@@ -76,4 +76,4 @@ db.student.find({"sname":"沐辰", "age":"21"})
  </ol>
 
 
-[**上一页<<**](../relational/chapter2.04-R.md) | [**>>下一页**](chapter2.06-G.md)
+[**上一页<<**](chapter2.04-R.md) | [**>>下一页**](chapter2.06-G.md)

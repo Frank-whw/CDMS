@@ -84,7 +84,7 @@ T2: R(A), W(A), R(B), W(B)  /*事务T2读数据项A，再将更新后的值写�
 - 若关系数据库隔离级别为READ COMMITTED，T2的两次读取结果是否可能不同？为什么？
 - 若隔离级别为REPEATABLE READ，结果是否可能不同？为什么？
 
-[**上一页<<**](../common/chapter4.04.md) | [**>>下一页**](chapter4.06-D.md)
+[**上一页<<**](chapter4.04.md) | [**>>下一页**](chapter4.06-D.md)
 
 
 

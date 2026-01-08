@@ -148,7 +148,7 @@ WHERE p.name STARTS WITH "Tom" AND m.year > 2000
 RETURN p.name, m.title
 ```
 
-[**上一页<<**](../document/chapter2.05-D.md) | [**>>下一页**](../3.%20数据管理系统的查询处理/index.md)
+[**上一页<<**](chapter2.05-D.md) | [**>>下一页**](../3.%20数据管理系统的查询处理/index.md)
 
 
 

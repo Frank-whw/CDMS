@@ -95,7 +95,7 @@ DROP INDEX  Stuna;
  <li>选择、投影、连接</li>
  </ol>
 
-[**上一 页<<**](../common/chapter2.03.md) | [**>>下一页**](chapter2.05-D.md)
+[**上一 页<<**](chapter2.03.md) | [**>>下一页**](chapter2.05-D.md)
 
 
 
