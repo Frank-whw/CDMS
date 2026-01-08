@@ -10,7 +10,7 @@
 * 列存储：数据按列存储在页中，即以表中的一列数据为存储单元进行连续存储。一列数据表示关系中某一个属性的所有值，每一列的属性值存储在一起，不同列的属性值分开存储。例如，学生表中的“学号”列的数据存储在一个连续的区域，“姓名”列的数据存储在另一个连续的区域，每个列中的数据在存储位置上是相邻的。
 
 <center>
-	<img src="../../assets/chR2.1-row-columnstore.jpg" width="80%" alt="Row-store and column-store" />
+	<img src="../assets/chR2.1-row-columnstore.jpg" width="80%" alt="Row-store and column-store" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-4-1 关系数据库的行存储和列存储结构

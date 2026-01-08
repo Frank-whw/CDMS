@@ -7,7 +7,7 @@
 关系模型是将数据组织成一个个关系，关系表示现实世界中的各类实体以及实体之间的联系。通常，关系可以形象地理解为一张二维表，它建立在集合论的基础之上。图1-6-1中展示了学生-课程数据库的关系模型和数据实例，其中包含学生Student、课程Course和选课SC三个关系。每个关系的逻辑结构是一张二维表，它由表头和表内记录组成。
 
 <center>
-	<img src="../../assets/chR1.1-RelationModel.jpg" width="99%" alt="Relational Model" />
+	<img src="../assets/chR1.1-RelationModel.jpg" width="99%" alt="Relational Model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-1 学生-课程数据库的关系模型和数据实例
@@ -37,7 +37,7 @@
 关系模型是一种数据组织结构，是一种信息表达方式。如何基于关系模型来描述数据的存取功能呢？关系模型上常用的计算方式称为关系代数。接下来，我们讲介绍如何用关系的运算来表达数据的存取。
 
 <center>
-	<img src="../../assets/chR1.2-RelationOperator.jpg" width="30%" alt="Relation Operator" />
+	<img src="../assets/chR1.2-RelationOperator.jpg" width="30%" alt="Relation Operator" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-2 关系代数运算符
@@ -67,7 +67,7 @@
 > [例1.01]  查询姓名为浩宇的学生。 关系运算表示为：$\sigma_{Sname='浩宇'}(Student)$，运算结果如图1-6-3(a)所示 。<br>
 > [例1.02] 查询年龄小于19岁的女学生。关系运算表示为：$\sigma_{Gender='女' \land Age < 19}(Student)$，运算结果如图1-6-3(b)所示。<br>
 <center>
-	<img src="../../assets/chR1.2-selection.jpg" width="40%" alt="Selection" />
+	<img src="../assets/chR1.2-selection.jpg" width="40%" alt="Selection" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图1-6-3 选择运算举例
@@ -86,7 +86,7 @@
 > [例1.04] 查询学生的系。关系运算表示为：$\Pi_{Dept}(Student)$，运算结果如图1-6-4(b)所示。<br>
 
 <center>
-	<img src="../../assets/chR1.2-projection.jpg" width="30%" alt="Projection" />
+	<img src="../assets/chR1.2-projection.jpg" width="30%" alt="Projection" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-4 投影运算举例
@@ -112,7 +112,7 @@
 > [例1.06] 查询学生和该学生的选课信息。自然连接表示为：$Student \Join SC$，运算结果如图1-6-5(b)所示。
 
 <center>
-	<img src="../../assets/chR1.2-equaljoin.jpg" width="66%" alt="Equal Join" />
+	<img src="../assets/chR1.2-equaljoin.jpg" width="66%" alt="Equal Join" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-5 等值连接和自然连接举例
@@ -127,7 +127,7 @@
 > [例1.09] 关系$R$和关系$S$的右外连接，表示为：$R ⟖ S $，运算结果如图1-6-6(d)所示。
 
 <center>
-	<img src="../../assets/chR1.2-outerjoin.jpg" width="60%" alt="Outer Join" />
+	<img src="../assets/chR1.2-outerjoin.jpg" width="60%" alt="Outer Join" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-6 外连接运算举例
@@ -153,7 +153,7 @@
 例R1.10的执行过程如下：在关系$R$中，属性$A$的取值为$\{a1,a2,a3,a4\}$。首先，分别计算它们的象集，其中$a1$的象集为$\{(b1,c2),(b2,c3),(b2,c1)\}$；$a2$的象集为$\{(b3,c7),(b2,c3)\}$；$a3$的象集为$\{(b4,c6)\}$；$a4$的象集为$\{(b6,c6)\}$。然后，计算关系$S$在$(B,C)$上的投影为$\{(b1,c2),(b2,c3),(b2,c1)\}$。最后，比较各象集和关系$S$的投影结果，只有$a1$的象集包含了$S$在$(B,C)$上的投影，所以，$R \div S = \{a1\}$。
 
 <center>
-	<img src="../../assets/chR1.2-division.jpg" width="40%" alt="Divison" />
+	<img src="../assets/chR1.2-division.jpg" width="40%" alt="Divison" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-7 除运算举例
@@ -171,7 +171,7 @@
 > [例1.12] 查询选修3号课程且成绩在90分及以上的所有学生的学号和姓名。 关系代数表达式表示为：$\Pi_{Student.Sno,Sname}(Student \Join_{Student.sno=SC.sno} (\sigma_{Cno='3' \land Grade >= '90'})SC)$，查询结果如图1-6-8(b)所示 。<br>
 
 <center>
-	<img src="../../assets/chR1.2-RelationAlgebra.jpg" width="40%" alt="RelationAlgebra" />
+	<img src="../assets/chR1.2-RelationAlgebra.jpg" width="40%" alt="RelationAlgebra" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-6-8 关系代数表达式举例

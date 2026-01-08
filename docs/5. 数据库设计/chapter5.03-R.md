@@ -56,7 +56,7 @@
 **3**. 下图所示的ER图刻画了四类实体，对“员工”而言，另三类实体（合同工、咨询专家和普通员工）都是它的子类。也就是说，员工拥有的属性，另三类实体都拥有；而子类拥有的属性父类未必拥有。请尝试设计这四类实体对应的关系表。
 
 <center>
-	<img src="../../assets/ch5.3-exercises3.jpg" width="45%" alt="E-R" />
+	<img src="../assets/ch5.3-exercises3.jpg" width="45%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 四类实体ER图

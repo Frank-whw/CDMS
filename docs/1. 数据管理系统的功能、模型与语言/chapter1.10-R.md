@@ -20,7 +20,7 @@ SELECT语句既能够实现简单的单表查询，也能实现复杂的连接�
 单表查询是指仅涉及一个表的查询。选择表中满足查询条件的元组的全部或部分列即关系代数的选择和投影运算。下面给出了单表查询的例子。
 
 <center>
-	<img src="../../assets/chR1.5-SelectOne.jpg" width="60%" alt="select" />
+	<img src="../assets/chR1.5-SelectOne.jpg" width="60%" alt="select" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-10-1 单表查询示例
@@ -73,7 +73,7 @@ WHERE子句中<条件表达式>常用的表达式包括：比较表达式、确�
 
 下面给出了自然连接查询、复合条件连接查询以及外连接查询的例子。
 <center>
-	<img src="../../assets/chR1.5-SelectJoin.jpg" width="90%" alt="join" />
+	<img src="../assets/chR1.5-SelectJoin.jpg" width="90%" alt="join" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-10-2 多表查询示例
@@ -134,7 +134,7 @@ FROM SC
 WHERE  Cno = '3';
 ```
 <center>
-	<img src="../../assets/chR1.5-Aggregation.jpg" width="40%" alt="Aggregation" />
+	<img src="../assets/chR1.5-Aggregation.jpg" width="40%" alt="Aggregation" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-10-3 聚集查询示例
@@ -169,7 +169,7 @@ HAVING AVG(Grade)>=88;
 该语句的执行过程是：首先按Cno的值将SC表分为3组，然后再用聚集函数AVG(Grade)计算每一组的平均成绩，最后再根据HAVING的条件表达式筛选出平均成绩大于等于88的分组并输出。查询结果如图1-10-4(b)所示。
 
 <center>
-	<img src="../../assets/chR1.5-Groupby.jpg" width="60%" alt="Groupby" />
+	<img src="../assets/chR1.5-Groupby.jpg" width="60%" alt="Groupby" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-10-4 分组聚集查询示例
@@ -197,7 +197,7 @@ WHERE Sno IN(SELECT Sno FROM SC WHERE Cno='3');
 该语句的执行过程是：首先执行子查询，父查询将子查询的结果视为一张基础表，然后在基础表上执行查询，即由内向外进行处理。查询结果如图1-10-5所示。
 
 <center>
-	<img src="../../assets/chR1.5-NestedSelect.jpg" width="13%" alt="NestedSelect" />
+	<img src="../assets/chR1.5-NestedSelect.jpg" width="13%" alt="NestedSelect" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-10-5 嵌套查询示例
@@ -248,7 +248,7 @@ WHERE NOT EXISTS (SELECT * FROM SC y WHERE y.sno=x.sno);
 上例是带有NOT EXISTS的相关嵌套查询。其执行过程为：首先外层执行查询，从Student表中读取第一个元组，将元组的sno值（2022001）带入内层查询，然后执行内层查询，从SC表中读取sno=‘2022001’的元组，最后，如果内层查询返回为空，外层查询则输出Student表中的元组信息，否则不输出。重复上述操作直到处理完外层查询的表中的所有元组。查询结果如图1-10-6(b)。
 
 <center>
-	<img src="../../assets/chR1.5-SubQuery.jpg" width="80%" alt="subquery" />
+	<img src="../assets/chR1.5-SubQuery.jpg" width="80%" alt="subquery" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-10-6 相关子查询示例

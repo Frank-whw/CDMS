@@ -102,7 +102,7 @@
 又例如，以下图1-4-1的**图结构模型**将实体作为顶点，将实体之间的联系作为边，从而把数据组织成图的形态。
 
 <center>
-	<img src="../../assets/ch1.4-graphmodel.JPG" width="65%" alt="Graph Model" />
+	<img src="../assets/ch1.4-graphmodel.JPG" width="65%" alt="Graph Model" />
 	<br>
 	<div display: inline-block; padding : 2px>
         图 1-4-1 图结构模型
@@ -203,7 +203,7 @@
 | ...  | ...       | ...    | ...     | ...  |
 
 <center>
-	<img src="../../assets/ch1.4-graphschema.JPG" width="35%" alt="Schema" />
+	<img src="../assets/ch1.4-graphschema.JPG" width="35%" alt="Schema" />
 	<br>
 	<div display: inline-block; padding : 2px>
          图 1-4-2 基于图结构模型的数据模式

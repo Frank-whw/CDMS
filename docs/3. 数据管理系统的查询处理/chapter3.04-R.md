@@ -9,7 +9,7 @@
 
 逻辑等价变换规则主要包括结合律、交换律、选择下推、投影下推、笛卡尔积和连接运算的等价规则等。常用的关系代数表达式的逻辑等价交换规则如图3-4-1所示。
 <center>
-	<img src="../../assets/chR3.3-algebraicrule.jpg" width="75%" alt="algebraicrule" />
+	<img src="../assets/chR3.3-algebraicrule.jpg" width="75%" alt="algebraicrule" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-4-1 常用的逻辑等价交换规则
@@ -34,7 +34,7 @@ WHERE SC.Sno = Student.Sno AND SC.Grade < 60;
 图3-4-2展示了上例SQL经查询解析生成的初始查询树，再经过逻辑优化的过程。整个代数优化过程基于启发式规则，主要包括分解复合的选择谓词、下推选择运算、将笛卡尔积转换为连接运算以及引入并下推投影运算。
 
 <center>
-	<img src="../../assets/chR3.3-algebraicoptimization.jpg" width="80%" alt="algebraic optimization" />
+	<img src="../assets/chR3.3-algebraicoptimization.jpg" width="80%" alt="algebraic optimization" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-4-2 关系数据库系统的逻辑优化过程

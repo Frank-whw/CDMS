@@ -22,7 +22,7 @@
 例如，对于图1-14-3的学生选课数据库的图模型，如果我们要查找所有计算机系的学生节点，直观来看，节点模式匹配可得到如图1-16-1所展示的结果，其中匹配到的节点用红色圆圈标注。
 
 <center>
-	<img src="../../assets/1.01.1_5.png" width="100%" alt="cluster" />
+	<img src="../assets/1.01.1_5.png" width="100%" alt="cluster" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-16-1 节点模式匹配示例 （匹配的节点以红色圆圈标注）
@@ -36,7 +36,7 @@
 例如，对于图1-14-3的学生选课数据库的图模型，如果我们要查找最终成绩在90及以上的所有选课关系，直观来看，关系模式匹配可得到如图1-16-2所展示的结果.
 
 <center>
-	<img src="../../assets/1.01.1_6.png" width="100%" alt="cluster" />
+	<img src="../assets/1.01.1_6.png" width="100%" alt="cluster" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-16-2 关系模式匹配示例（匹配的关系以红色线条标注）
@@ -66,7 +66,7 @@
 例如，对于图1-14-3的学生选课数据库的图模型，如果我们要查找沐辰选择的所有课程的路径，直观来看，路径模式匹配可得到如图1-16-3的结果：
 
 <center>
-	<img src="../../assets/1.01.1_7.png" width="100%" alt="cluster" />
+	<img src="../assets/1.01.1_7.png" width="100%" alt="cluster" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-16-3 路径模式匹配示例 （其中匹配的路径以红色标注）

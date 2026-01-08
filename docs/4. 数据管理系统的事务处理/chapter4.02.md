@@ -5,7 +5,7 @@
 为了方便读者理解，我们将一个简化的数据更新操作作为例子，用于解释恢复机制的工作原理。假设要完成一个数据更新操作O1，我们需要更新A、B两个数据页（例如B存放了被更新的数据项，而A存放了该数据项的索引信息）。根据存储硬件的构造原理，计算机系统每次只能完整地读写一个数据页，而无法一次性完成两个数据页的读写。那么，我们可能会遇到如图4-2-1中的情况：
 
 <center>
-	<img src="../../assets/ch4.2-example.JPG" width="20%" alt="example"/>
+	<img src="../assets/ch4.2-example.JPG" width="20%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-1 故障导致操作O1无法完成
@@ -22,7 +22,7 @@
 Undo日志是一种比较容易想到的日志记录模式。它的工作方式如图4-2-2所示：
 
 <center>
-	<img src="../../assets/ch4.2-undolog.JPG" width="35%" alt="example"/>
+	<img src="../assets/ch4.2-undolog.JPG" width="35%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-2 Undo日志记录过程示例
@@ -34,7 +34,7 @@ Undo日志是一种比较容易想到的日志记录模式。它的工作方式�
 一旦有了这样的日志记录，系统将在故障恢复时识别出没有完成的操作，并准确地将数据恢复到操作开始前的状态。
 
 <center>
-	<img src="../../assets/ch4.2-undoexample.JPG" width="70%" alt="example"/>
+	<img src="../assets/ch4.2-undoexample.JPG" width="70%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-3 Undo日志遭遇故障的两种情况
@@ -57,7 +57,7 @@ Undo日志是一种比较容易想到的日志记录模式。它的工作方式�
 在实施Undo日志时，我们需要记录每个数据被更新之前的取值。另一种日志记录方式称为Redo日志，它只记录每个数据被更新之后的取值。其工作方式如图4-2-4所示：
 
 <center>
-	<img src="../../assets/ch4.2-redolog.JPG" width="35%" alt="example"/>
+	<img src="../assets/ch4.2-redolog.JPG" width="35%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-4 Redo日志记录过程示例
@@ -70,7 +70,7 @@ Undo日志是一种比较容易想到的日志记录模式。它的工作方式�
 利用Redo日志，系统同样可以保证数据访问操作的原子性。
 
 <center>
-	<img src="../../assets/ch4.2-redoexample.JPG" width="70%" alt="example"/>
+	<img src="../assets/ch4.2-redoexample.JPG" width="70%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-5 Redo日志遭遇故障的两种情况
@@ -102,7 +102,7 @@ Undo日志是一种比较容易想到的日志记录模式。它的工作方式�
 因此，我们更希望能够结合Undo日志和Redo日志的优势，构造出一种更灵活的日志模式。Undo/Redo日志就是这样一种模式。其工作方式如图4-2-6所示：
 
 <center>
-	<img src="../../assets/ch4.2-redoundolog.JPG" width="70%" alt="example"/>
+	<img src="../assets/ch4.2-redoundolog.JPG" width="70%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-6 Undo/Redo日志记录过程示例
@@ -128,7 +128,7 @@ Redo日志以及Undo/Redo日志均要求系统在恢复时重做所有已经事�
 检查点操作通常也会被记录在日志里面，如图4-2-7所示。
 
 <center>
-	<img src="../../assets/ch4.2-checkpoint.JPG" width="30%" alt="example"/>
+	<img src="../assets/ch4.2-checkpoint.JPG" width="30%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-2-7 日志中的检查点记录

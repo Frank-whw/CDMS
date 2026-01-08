@@ -7,7 +7,7 @@
 需求分析的目的是梳理出一个应用程序以什么样的方式满足用户的需求。用户并不关心应用程序内部是如何工作的，他们只关心如何跟应用进行交互以及交互的结果是什么。因此，需求分析的核心实际上是确定用户界面。一个博客网站的主要功能是让用户在上面撰写、发表、阅读和分享文章，满足用户的创作、交流和知识获取需求。经过用户调研和头脑风暴，我们可以得出如下的用户界面。
 
 <center>
-	<img src="../../assets/ch5.2-interface.jpg" width="85%" alt="interface" />
+	<img src="../assets/ch5.2-interface.jpg" width="85%" alt="interface" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-2-1 博客网站前端功能界面
@@ -23,7 +23,7 @@
 * 博客编辑界面：这个界面提供博客文章的编辑功能。编写好之后即可进行发布。
 
 <center>
-	<img src="../../assets/ch5.2-business.jpg" width="60%" alt="business processing" />
+	<img src="../assets/ch5.2-business.jpg" width="60%" alt="business processing" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-2-2 博客网站业务流程
@@ -49,7 +49,7 @@
 * 文章与评论之间的评价联系：这也是一种一对多的联系，一篇文章可以有多则评论，一则评论则只针对一篇文章。
 
 <center>
-	<img src="../../assets/ch5.2-E-Rmodel.jpg" width="85%" alt="E-R" />
+	<img src="../assets/ch5.2-E-Rmodel.jpg" width="85%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-2-3 博客网站的ERD

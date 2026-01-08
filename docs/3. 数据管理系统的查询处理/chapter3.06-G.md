@@ -17,7 +17,7 @@
 
 
 <center>
-	<img src="../../assets/ch3.6-graph-arch.jpg" width="80%" alt="cypher-cycle" />
+	<img src="../assets/ch3.6-graph-arch.jpg" width="80%" alt="cypher-cycle" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-6-1 图数据库软件架构
@@ -36,7 +36,7 @@
 
 图数据库的查询即为输入一个查询语句，图数据库给出查询结果的过程。一个查询语句（以Cypher语言的查询为例）的查询处理分为三个步骤：查询解析、查询优化和查询执行，如图3-6-2所示。
 <center>
-	<img src="../../assets/3.06-1-cypherCycle.png" width="100%" alt="cypher-cycle" />
+	<img src="../assets/3.06-1-cypherCycle.png" width="100%" alt="cypher-cycle" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-6-2  Cypher语言查询处理步骤
@@ -63,7 +63,7 @@ RETURN c.Cno AS Cno, r.Grade AS Grade
 当处理例3.08的Cypher语句时，图数据库（以Neo4j为例）首先通过查询解析将该语句转化为一个抽象语法树，如图3-6-3所示。在查询解析的步骤中，Neo4j首先通过词法分析将该查询字符串分解成一系列标记（tokens），如关键字、标识符、常量、操作符、分隔符等。然后通过语法分析构建语法树，在该过程中Neo4j会先依据上下文无关文法（Context-free Grammar）来生成具体语法树，再将其转化为抽象语法树。二者的区别在于，具体语法树会详细地还原查询语句中的所有细节，而抽象语法树则通过树结构本身隐式地表达一些内容，如括号、连接等等。最后，语义分析进⼀步验证顶点和边的依赖关系是否成⽴、是否正确使⽤属性等，增强语法树的语义表达和中间表示。语法分析和语义分析的区别在于语义分析在语法分析的基础上考虑了语句的逻辑性。
 
 <center>
-	<img src="../../assets/3.06-2-cypherExplaining.png" width="100%" alt="cypher-explain" />
+	<img src="../assets/3.06-2-cypherExplaining.png" width="100%" alt="cypher-explain" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-6-3 查询解析过程
@@ -80,7 +80,7 @@ RETURN c.Cno AS Cno, r.Grade AS Grade
 
 
 <center>
-	<img src="../../assets/3.06-3-cypherQueryPlan.png" width="30%" alt="cypher- queryPlan" />
+	<img src="../assets/3.06-3-cypherQueryPlan.png" width="30%" alt="cypher- queryPlan" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-6-4 查询计划
@@ -117,7 +117,7 @@ RETURN c.name, c.grade
 
 
 <center>
-	<img src="../../assets/graph_operator.jpg" width="30%" alt="graph_operator" />
+	<img src="../assets/graph_operator.jpg" width="30%" alt="graph_operator" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-6-5 火山模型执行过程

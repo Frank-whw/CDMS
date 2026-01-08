@@ -31,7 +31,7 @@
 概念设计的目的是确定数据库内应该存放什么数据。数据是用于描述现实世界中的人、事、物的。因此，概念设计的要点就是要搞清楚现实世界的哪些人、事、物以及这些人、事、物的哪些信息需要在数据库中描述。为了准确的刻画这些信息，我们通常会构建概念模型。概念模型用一组抽象的概念描述现实世界的人、事、物，避免了自然语言的模糊性和歧义性，有助于我们获得清晰的数据库设计。市面上常见的概念设计工具有很多，包括实体-联系图（Entity-Relationship Diagram，简称ERD）、统一建模语言（Unified Modeling Language，简称UML）等。ERD被更多用于数据库设计。因此，本章主要介绍基于ERD的概念模型。
 
 <center>
-	<img src="../../assets/ch5.1-E-Rforemployee.jpg" width="85%" alt="E-R" />
+	<img src="../assets/ch5.1-E-Rforemployee.jpg" width="85%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-1-1 员工与项目E-R图
@@ -58,7 +58,7 @@ ERD是由P. S. Chen于1976年提出的概念建模语言。它由实体（Entity
 - ERD也可以表示多元联系。图5-1-2(d)展示了用户、手机和运营商之间的联系，即一个用户可以使用若干个手机，一个运营商可以服务若干个手机，但是一个手机只属于某一用户，只能选择某一个运营商。一般地，把参与联系的实体类的数目称为联系的度。单类实体之间的联系度为1，也成一元联系；两类实体之间的联系度为2，称为二元联系；三类实体之间的联系度为3，称为三元联系；N类实体之间的联系度为N，称为N元联系。
 
 <center>
-	<img src="../../assets/ch5.1-exampleofE-R.jpg" width="85%" alt="E-R" />
+	<img src="../assets/ch5.1-exampleofE-R.jpg" width="85%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-1-2 ERD中各种联系的示例
@@ -77,7 +77,7 @@ ERD是由P. S. Chen于1976年提出的概念建模语言。它由实体（Entity
 通过分析发现，购物网站面对的主要是用户和商品两类实体。为了实现网站购物，需要记录用户的用户号Uid、用户名Uname、地址Uadd、电话Tel和购物喜好Pref等特征属性。其中用户号Uid用于识别用户，因此是一个唯一属性。同理，网站也应该记录商品的商品号Pid、商品名Pname、商品种类Category、商品价格Price、仓储地址Padd等特征属性刻画。其中商品号Pid是商品的唯一属性。这样我们就可以构建出如图5-1-3所示的ERD概念模型。
 
 <center>
-	<img src="../../assets/ch5.1-ShoppingE-R.jpg" width="80%" alt="E-R" />
+	<img src="../assets/ch5.1-ShoppingE-R.jpg" width="80%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-1-3 购物网站的ERD概念模型 

@@ -20,7 +20,7 @@ db.student.find({
 * 在查询执行步骤中，文档数据库系统将物理执行计划看作是由一系列的操作符组成的流水线，采用类似火山模型的流式处理模式处理查询执行计划，如图3-5-1中的执行模型所示。
 
 <center>
-	<img src="../../assets/chD3.5-singestage.jpg" width="50%" alt="SingStage" />
+	<img src="../assets/chD3.5-singestage.jpg" width="50%" alt="SingStage" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-5-1 文档数据库find查询的查询处理
@@ -65,7 +65,7 @@ db.student.aggregate( [
 * 在查询优化步骤中，查询优化包含逻辑优化和物理优化，逻辑优化是通过调整查询树中数据处理阶段的顺序来最小化每个阶段要处理的文档数，从而提高查询的执行效率。常用的逻辑优化规则有优先执行过滤操作等。图3-5-2中，逻辑优化过程将\$match操作下推，优先执行过滤操作。物理优化则是为每个操作确定执行算法，从而使得物理执行计划代价最小。图3-5-2中，读取student文档集使用姓名sname上的索引扫描，分组操作采用哈希分组。
 * 在查询执行步骤中，文档数据库系统将物理执行计划中的各个数据处理阶段看作一个个操作符，数据从一个阶段流向下一个阶段，执行过程类似于火山模型的流式处理模式，如图3.12的执行模型所示。
 
-![MultiStage](../../assets/chD3.5-multistage.jpg)
+![MultiStage](../assets/chD3.5-multistage.jpg)
 <br>
 <div style="display: inline-block; padding: 2px">
     图 3-5-2 文档数据库aggregate聚合查询的查询处理

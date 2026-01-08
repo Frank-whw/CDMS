@@ -15,7 +15,7 @@
 B+树是对传统B树的一种改进，它们都属于一种平衡的多路查找树。相比于传统的平衡二叉树（例如红黑树），B树和B+树的结构更扁平、更稳定，能够让查询过程中的硬盘读取次数尽可能小，从而获得较高的数据查询性能。
 
 <center>
-	<img src="../../assets/ch2.3-B+tree.jpg" width="70%" alt="B+Tree"/>
+	<img src="../assets/ch2.3-B+tree.jpg" width="70%" alt="B+Tree"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-3-1 B+树结构
@@ -63,7 +63,7 @@ B+树能够支持高效的数据查询，同时也支持高效的数据插入和
 ```
 
 <center>
-	<img src="../../assets/ch2.3-treeinsert.jpg" width="80%" alt="B+TreeInsert"/>
+	<img src="../assets/ch2.3-treeinsert.jpg" width="80%" alt="B+TreeInsert"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-3-2 B+树插入
@@ -86,7 +86,7 @@ B+树能够支持高效的数据查询，同时也支持高效的数据插入和
 当数据被删除时，B+树的结构也会发生改变。假如我们要删除"PersonID=101"、“PersonID=180”这两个数据项，B+树的变化过程如图2-3-3所示。
 
 <center>
-	<img src="../../assets/ch2.3-treedelete.jpg" width="60%" alt="B+TreeDelete"/>
+	<img src="../assets/ch2.3-treedelete.jpg" width="60%" alt="B+TreeDelete"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-3-3 B+树删除
@@ -117,7 +117,7 @@ B+树的插入和删除操作通常比查询操作代价更大，主要源于其
 当用索引被作为存储结构时，数据集里的数据项通常是按照索引的键值进行排序的。排序后的数据项再被依次存放到一个个数据页中，如图2-3-4所示。此时的索引称为数据集的主索引，也称为聚簇索引。
 
 <center>
-	<img src="../../assets/ch2.3-clusteredindex.jpg" width="70%" alt="ClusteredIndex"/>
+	<img src="../assets/ch2.3-clusteredindex.jpg" width="70%" alt="ClusteredIndex"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-3-4 聚簇索引的形态
@@ -129,7 +129,7 @@ B+树的插入和删除操作通常比查询操作代价更大，主要源于其
 一个数据集只能拥有一个聚簇索引，因为其数据项只能按照一种方式排序。但一个聚簇索引并不能满足所有的查询需求。例如，对上述例子中的个人信息数据集，我们需要通过*PersonID*查询个人信息，有时也需要通过*PersonInfo*中的姓名（*name*）去查询个人信息。如果我们只在*PersonID*上构造一个聚簇索引，后者就难以被满足。为此，我们可以在*PersonInfo*中的姓名属性上再构造一个索引，如图2-3-5所示。这样的索引称为辅助索引。
 
 <center>
-	<img src="../../assets/ch2.3-nonclusteredindex.jpg" width="70%" alt="Non-clusteredindex"/>
+	<img src="../assets/ch2.3-nonclusteredindex.jpg" width="70%" alt="Non-clusteredindex"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-3-5 辅助索引的形态

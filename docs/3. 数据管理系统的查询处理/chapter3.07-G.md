@@ -24,7 +24,7 @@ RETURN s.Sname, c.Cname, e.Grade
 ```
 
 <center>
-	<img src="../../assets/3.08-1-optimizing.png" width="75%" alt="graph-optimizing" />
+	<img src="../assets/3.08-1-optimizing.png" width="75%" alt="graph-optimizing" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-7-1 逻辑优化过程

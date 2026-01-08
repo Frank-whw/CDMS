@@ -52,7 +52,7 @@ Cypher 提供了一种可视化的模式和关系匹配方法。它依赖于以�
 Cypher 的构造基于简洁的图像，使查询既易于编写又易于阅读。例如，请看下图中的简单图数据，你将如何用语言表示这些数据？
 
 <center>
-	<img src="../../assets/1.03.2_1.png" width="100%" alt="graph model" />
+	<img src="../assets/1.03.2_1.png" width="100%" alt="graph model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1.37 图建模示例
@@ -68,7 +68,7 @@ Cypher 语法就建立在我们刚刚表达的结构之上。
 由于 Cypher 模式受 ASCII-Art 的启发，我们需要一种可视化的方式来表示上述模式中的每个组件。属性图模型的主要组件是节点和关系。节点是图中的数据实体，通过一个或多个标签标记，我们通常可以通过查找数据模型中的名词或对象来识别节点。例如，在图R3.02中，学生和课程是我们的节点，分别用”Student“和“Course”标签标记。同样，我们也可以直接通过唯一标识符来访问节点（Neo4j会自动为每个节点和边分配一个唯一的ID），后续在Cypher的基本查询中将展开介绍。
 
 <center>
-	<img src="../../assets/1.03.2_2.png" width="100%" alt="node model" />
+	<img src="../assets/1.03.2_2.png" width="100%" alt="node model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1.38 节点建模示例
@@ -96,7 +96,7 @@ Cypher 语法就建立在我们刚刚表达的结构之上。
 在我们的示例中，节点之间标有 `ENROLLS` 的线就是我们的关系。请注意，对于有向关系，我们使用箭头和两个破折号来表示，例如`-->`，而对于无向关系，我们仅使用 `--` 来表示，它表示关系可以沿任一方向遍历。
 
 <center>
-	<img src="../../assets/1.03.2_3.png" width="100%" alt="edge model" />
+	<img src="../assets/1.03.2_3.png" width="100%" alt="edge model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1.39 边建模示例
@@ -134,7 +134,7 @@ MATCH (s:Student)-[:ENROLLS]-(c:Course)
 - 关系属性：`-[rel:ENROLLS {Grade: 92}]->`
 
 <center>
-	<img src="../../assets/1.03.2_4.png" width="100%" alt="property model" />
+	<img src="../assets/1.03.2_4.png" width="100%" alt="property model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1.40 属性建模示例
@@ -159,7 +159,7 @@ Cypher 语法使用了一系列**关键字**和符号来定义和操作图数据
 让我们以图1.41的图模型为例，来了解不同的关键字和基础的查询语句。
 
 <center>
-	<img src="../../assets/1.01.1_4.png" width="100%" alt="data model" />
+	<img src="../assets/1.01.1_4.png" width="100%" alt="data model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1.41 数据模型
@@ -335,7 +335,7 @@ RETURN p
 请注意，在 Cypher 查询中，如果有多条最短路径，`shortestPath` 函数将只返回其中一条。如果需要找到所有最短路径，可以使用 `allShortestPaths` 函数。假设该结果表示的图如下：
 
 <center>
-	<img src="../../assets/1.03.2_5.png" width="100%" alt="shortestPath" />
+	<img src="../assets/1.03.2_5.png" width="100%" alt="shortestPath" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1.42 最短路径

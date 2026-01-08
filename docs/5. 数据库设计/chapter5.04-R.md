@@ -10,7 +10,7 @@ Order(Oid, Uid,Uname,Pid,Pname,Price,Quantity,Date),其中Oid、Uid和Pid为主�
 ```
 
 <center>
-	<img src="../../assets/chR5.2-Shoppingschema1.jpg" width="95%" alt="E-R" />
+	<img src="../assets/chR5.2-Shoppingschema1.jpg" width="95%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-4-1 用户购物的单一关系模式Order
@@ -60,7 +60,7 @@ OrderLine(Oid,Pid,Quantity),其中Oid和Pid为主码
 ```
 
 <center>
-	<img src="../../assets/chR5.2-Shoppingschema2.jpg" width="99%" alt="E-R" />
+	<img src="../assets/chR5.2-Shoppingschema2.jpg" width="99%" alt="E-R" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 5-4-2 用户购物的四个模式User、Product、Order、OrderLine

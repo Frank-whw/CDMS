@@ -5,7 +5,7 @@
 为了方便读者理解，我们先使用一个简单例子来用说明并发操作可能造成的困扰。假设有两个数据更新操作O1和O2，都希望对数据项a的取值进行更新。O1想将a的取值累加1，而O2希望将a的取值累加2。O1和O2被同时提交给数据管理系统。于是系统将它们交给两个线程并行执行。由于底层操作系统对CPU的调度，实际的执行顺序如图4-3-1所示。
 
 <center>
-	<img src="../../assets/ch4.3-example1.JPG" width="40%" alt="example"/>
+	<img src="../assets/ch4.3-example1.JPG" width="40%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-1 并发导致操作O1的更新丢失
@@ -23,7 +23,7 @@
 对上述例子中的O1和O2，我们可以采取如下图所示的加锁和解锁操作。O1在读取数据项a之前会率先对a所在的数据页加锁，待完成对a的更新之后再释放锁。此时，由于O2无法在O1持有锁的同时获得a所在数据页的锁，它也就无法在O1执行数据更新之前获得对a的访问权。O1和O2的原子性由此得到了保证。
 
 <center>
-	<img src="../../assets/ch4.3-lock1.JPG" width="45%" alt="example"/>
+	<img src="../assets/ch4.3-lock1.JPG" width="45%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-2 加锁可确保O1和O2的原子性
@@ -37,7 +37,7 @@
 为了完整地实现数据访问操作的原子性，加锁和解锁的时机是需要考究的。下图4-3-3中的O3和O4是两个更复杂的数据更新操作。如果我们仅在访问数据之前加锁，而在数据访问结束后立即解锁，原子性并不能得到有效保证。
 
 <center>
-	<img src="../../assets/ch4.3-example2.JPG" width="45%" alt="example"/>
+	<img src="../assets/ch4.3-example2.JPG" width="45%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-3 简单加锁未必能实现原子性
@@ -50,7 +50,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 由此可见，加锁和解锁需要遵循一定的原则才能确保原子性。如下图4-3-4所示，如果O3和O4等到整个操作完全结束后才释放a和b的锁，就不会遇到上述情况。
 
 <center>
-	<img src="../../assets/ch4.3-lock2.JPG" width="45%" alt="example"/>
+	<img src="../assets/ch4.3-lock2.JPG" width="45%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-4 最后释放锁可确保O3和O4的原子性
@@ -63,7 +63,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 如果我们不推迟对a的解锁时间，转而提前对b的加锁时间，同样可以确保O3和O4的原子性。如下图4-3-5所示，我们稍微提前了对b的加锁时间，让O3和O4在释放a的锁之前先对b加锁，就能达到想要的效果。
 
 <center>
-	<img src="../../assets/ch4.3-lock3.JPG" width="45%" alt="example"/>
+	<img src="../assets/ch4.3-lock3.JPG" width="45%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-5 提前加锁也可确保O3和O4的原子性
@@ -76,7 +76,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 图4-3-4和图4-3-5似乎都选择了正确的加锁和解锁时机，从而让原子性得到了保证。那么，什么样的加锁原则可以确保原子性呢？我们可以从理论上证明，如果一个数据管理系统的所有操作都遵循*两阶段锁*（Two Phase Locking）的加锁原则，就一定能保证原子性。所谓两阶段锁就是确保一个操作的所有加锁动作和所有解锁动作先后在不重叠的两个时间段进行，也就是说，所有的加锁动作都必须发生在所有解锁动作之前。图4-3-6是对两阶段锁的一种形象的刻画。前一个阶段是锁的扩展阶段，其间只能加锁不能解锁。后一个阶段为锁的收缩阶段，其间只能解锁不能加锁。图4-3-4和图4-3-5显然都满足两阶段锁的原则。
 
 <center>
-	<img src="../../assets/ch4.3-2PL.JPG" width="45%" alt="example"/>
+	<img src="../assets/ch4.3-2PL.JPG" width="45%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-6 两阶段锁的示意图
@@ -93,7 +93,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 对于两阶段锁原则，我们可以使用反证法。假设原子性被违反了，那么图中一定会出现一个有向环。环中的一条边表示数据访问的先后顺序。比如，Oi &rarr; Oj表示Oi先于Oj访问某项数据。由数据访问的先后顺序，我们可以得出一系列加锁和解锁的先后顺序。比如，Oi &rarr; Oj说明在Oi对这个数据解锁之后，Oj才对这个数据加锁。然而，如下图4-3-7所示，这些先后次序一定会和两阶段锁规定的先后次序矛盾。由这个矛盾，我们就可以反推：一旦两阶段锁原则被遵循，原子性就一定不会被违反。
 
 <center>
-	<img src="../../assets/ch4.3-2PLproof.JPG" width="60%" alt="example"/>
+	<img src="../assets/ch4.3-2PLproof.JPG" width="60%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-7 两阶段锁和对原子性的违反不会同时成立
@@ -110,7 +110,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 虽然加锁是实施并发控制并实现原子性的有效方式，但频繁加锁会导致数据访问操作之间的频繁阻塞，对系统性能造成负面影响。数据管理系统的研发人员会不遗余力地采取措施，消除锁带来的性能损失。对锁进行类型划分就是一种行之有效的措施。
 
 <center>
-	<img src="../../assets/ch4.3-slockxlock.JPG" width="75%" alt="example"/>
+	<img src="../assets/ch4.3-slockxlock.JPG" width="75%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-8 区分共享锁和排他锁有利于提升并发度
@@ -136,7 +136,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 虽然分类型加锁可以在一定程度上减少两阶段锁的阻塞，但我们仍然会遇到严重的阻塞情况，以至于系统的性能被大幅削弱。例如，在B+树是使用两阶段锁就可能遇到类似的情况。
 
 <center>
-	<img src="../../assets/ch4.3-btreeCC.JPG" width="85%" alt="example"/>
+	<img src="../assets/ch4.3-btreeCC.JPG" width="85%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-9 B+树的分裂为并发控制带来困难
@@ -155,7 +155,7 @@ O3和O4都希望对数据项a和b进行一致的修改。O3希望将a和b累加1
 B+树是数据管理系统普遍使用的索引结构，它的性能往往会决定整个系统的性能。因此，大部分系统不会简单使用两阶段锁实现B+树的并发控制，而会对B+树进行一定的改进，以便采用冲突更小的并发控制方法。图4-3-10和图4-3-11展示了一棵改进后的B+树的分裂和合并过程。经过改进，B+树的查询、插入和删除操作都不再需要使用两阶段锁，而只需在访问每个节点的期间对这个节点上锁（即访问前加锁，访问完立即解锁）。 但为了确保并发过程不出错，B+树的各种操作都需遵循特定的流程。
 
 <center>
-	<img src="../../assets/ch4.3-btreeCCs.JPG" width="85%" alt="example"/>
+	<img src="../assets/ch4.3-btreeCCs.JPG" width="85%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-10 改进后的B+树分裂过程
@@ -166,7 +166,7 @@ B+树是数据管理系统普遍使用的索引结构，它的性能往往会决
 图 4-3-10展示了键值12被插入后B+树的分裂过程。首先（（1）到（2）），B+树会构建一个新增节点D，将其作为C分裂出的新节点。此时，B+树原先的结构并不受影响，查询操作仍然可以在其上进行。随后（（2）到（3）），B+树会更新节点A，让新增节点D被正式插入到查询路径中。一旦A被更新，键值12就算插入成功了，随后的查询操作就能顺利查到12。此时，节点C没有变化，其中的键值9成为了冗余，但不会影响查询的正确性。如果在A被更新之前，有查询操作先读取了A，并计划接下去读取C。即便此时A被更新了，由于C并没有改变，这些查询操作仍然可以读到正确的数据。最后（（3）到（4）），等到所有访问过老版本A节点的操作结束后，B+树才会更新节点C，将多余的键值删除掉。
 
 <center>
-	<img src="../../assets/ch4.3-btreeCCm.JPG" width="83%" alt="example"/>
+	<img src="../assets/ch4.3-btreeCCm.JPG" width="83%" alt="example"/>
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 4-3-11 改进后的B+树合并过程

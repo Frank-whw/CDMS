@@ -8,7 +8,7 @@
 ## 3.02.1  查询处理步骤
 关系数据库管理系统的查询处理分为3个步骤：查询解析（Query Interpretation）、查询优化（Query Optimization）和查询执行（Query Execution），如图3-2-1所示。
 
-![QueringProcessing](../../assets/chR3.1-QueryProcessing.jpg)
+![QueringProcessing](../assets/chR3.1-QueryProcessing.jpg)
 <br>
 <div style="display: inline-block; padding: 2px">
     图 3-2-1 关系数据库查询处理步骤
@@ -31,7 +31,7 @@ WHERE Student.Sno = SC.Sno AND Student.Sname = '沐辰';
 
 基于查询树的查询执行通常是自底向上的，首先处理查询树的叶节点，这些叶节点通常是读取关系表中的数据，然后根据叶节点的结果，逐步向上，根据关系运算计算中间结果，直到根节点，根节点的计算结果为查询的最终输出。查询树中的关系运算、关系运算顺序、关系算子的算法决定了查询处理的性能。前一小节中讲到，数据计算的性能主要受磁盘访问性能和CPU计算性能影响。因此，一个高性能的查询执行计划，其每步关系运算的中间结果集要尽可能的小且关系算子执行过程中要尽量减少磁盘访问的次数。
 
-![QueringParsing](../../assets/chR3.1-QueryParsing.jpg)
+![QueringParsing](../assets/chR3.1-QueryParsing.jpg)
 <br>
 <div style="display: inline-block; padding: 2px">
     图 3-2-2 查询解析过程
@@ -46,7 +46,7 @@ WHERE Student.Sno = SC.Sno AND Student.Sname = '沐辰';
 生成物理执行计划之后，关系数据库系统使用查询执行模型将物理执行计划编译为可执行代码，再实际执行代码得到查询结果。
 
 <center>
-	<img src="../../assets/chR3.1-QueryOptimization.jpg" width="99%" alt="QueringOptimization" />
+	<img src="../assets/chR3.1-QueryOptimization.jpg" width="99%" alt="QueringOptimization" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-2-3 查询优化过程
@@ -66,7 +66,7 @@ WHERE Student.Sno = SC.Sno AND Student.Sname = '沐辰';
 
 在例3.01中，查询的物理计划树的每一个节点对应一个独立的关系算子，其包含投影算子Project，连接算子Join，选择算子Select，扫描算子Scan。图3-2-4给出了例3.01基于火山模型的执行过程。火山模型采用自上而下的拉取方式执行查询计划。查询从执行计划的根节点出发，自上而下地递归调用每个关系算子的next()函数读取数据，数据则自底向上进行传递。
 
-![VolcanoModel](../../assets/chR3.1-volcanomodel.jpg)
+![VolcanoModel](../assets/chR3.1-volcanomodel.jpg)
 <br>
 <div style="display: inline-block; padding: 2px">
     图 3-2-4 火山模型执行过程

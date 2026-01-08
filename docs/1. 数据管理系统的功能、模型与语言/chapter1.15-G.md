@@ -9,7 +9,7 @@
 **邻接矩阵**是一种二维数组，用于表示图中顶点之间的边。对于一个有 $n$ 个顶点的图，邻接矩阵是一个 $n × n$ 的矩阵，存储了所有节点之间的边的信息。矩阵中的每个元素 $A[i][j]$ 表示顶点 $i$ 和顶点 $j$ 之间是否有边。对于无向图来说，如果顶点 $i$ 和顶点 $j$ 之间有边，则 $A[i][j]=1$（或边的权重）；否则$A[i][j]=0$。由于是无向图，因此矩阵是对称的，$A[i][j]=A[j][i]$。对于有向图来说，如果从顶点 $i$ 到顶点 $j$ 有一条边，则 $A[i][j]=1$（或边的权重）；否则 $A[i][j]=0$。如图1-15-1所示，展示了一个简单的无向图和有向图的邻接矩阵。
 
 <center>
-	<img src="../../assets/1.02.1_1.png" width="100%" alt="adjacency matrix" />
+	<img src="../assets/1.02.1_1.png" width="100%" alt="adjacency matrix" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-1 邻接矩阵示例
@@ -21,7 +21,7 @@
 **邻接表**是一种链表结构，用于表示每个顶点的邻接顶点。对于一个有 $V$ 个顶点、$E$ 条边的图，邻接表是一个包含 $V$ 个链表的数组，只存储了存在的边的信息，不存储不存在的边。同样，对于无向图来说，如果顶点 $i$ 和顶点 $j$ 之间有边，则顶点 $j$ 出现在 $A[i]$ 中，顶点 $i$ 也出现在链表 $A[j]$ 中；对于有向图来说，如果从顶点 $i$ 到顶点 $j$ 有一条边，则只有顶点 $j$ 出现在链表 $A[i]$中。如图1-15-2所示，展示了一个简单的无向图和有向图的邻接链表。
 
 <center>
-	<img src="../../assets/1.02.1_2.png" width="100%" alt="adjacency list" />
+	<img src="../assets/1.02.1_2.png" width="100%" alt="adjacency list" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-2 邻接表示例
@@ -39,7 +39,7 @@
 例如，如果我们要用一个图来编码博客网站，节点有用户和博客，从节点 $a$ 到节点 $b$ 的（有向）边则表示$a$发表了$b$，博客网站数据库可以用图建模如下：
 
 <center>
-	<img src="../../assets/1.02.2_1.png" width="100%" alt="graph demo 1" />
+	<img src="../assets/1.02.2_1.png" width="100%" alt="graph demo 1" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-3 博客网站图建模（示例1）
@@ -49,7 +49,7 @@
 然而，用这样一种简单的图形式来表达不同类型的关系是很困难的。例如，假设我们希望表达出User不仅发表了Doc，还给该文章点了赞这一信息，我们可以考虑在这两个节点之间添加一条边，这样两个节点的连接方式就如图1-15-4所示：
 
 <center>
-	<img src="../../assets/1.02.2_2.png" width="100%" alt="graph demo 2" />
+	<img src="../assets/1.02.2_2.png" width="100%" alt="graph demo 2" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-4 博客网站图建模图（示例2）
@@ -61,7 +61,7 @@
 **边标记图（Edge-labelled graph）** 是一种简单且被广泛采用的解决方案，它是图数据库中最基本的图模型之一。在边标记图中，我们还为边指定了标签，以表示所描述领域中不同类型的关系。我们可以参照图1-15-5中的一个建模示例，User1与Doc有两种关系：一种关系由标有“WRITES”的边表示，另一种关系由标有“LIKES”的边表示 。同时，在博客网站中，用户和用户之间还有“关注”的关系，因此，在示例中，由User2指向User1并标有“FOLLOWS”的边表示User2关注User1。
 
 <center>
-	<img src="../../assets/1.02.2_3.png" width="100%" alt="edge-labelled graph" />
+	<img src="../assets/1.02.2_3.png" width="100%" alt="edge-labelled graph" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-5 边标记图示例
@@ -99,7 +99,7 @@ $$
 **超图（Hypergraph）** 作为图的一种扩展模型，将边的概念扩展到了超边。与传统的图（Graph）不同，超图的每条边（称为超边）可以连接任意数量的顶点，而不仅仅是两个。因此，超图提供了一种更灵活和通用的方式来表示多元关系，如图1-15-6中右所示（图1-15-6中左图为普通图）。
 
 <center>
-	<img src="../../assets/1.02.3_1.png" width="100%" alt="hypergraph" />
+	<img src="../assets/1.02.3_1.png" width="100%" alt="hypergraph" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-6 普通图与超图对比示例
@@ -115,7 +115,7 @@ $$
 例如，考虑一个超图 $H$，其中顶点集 $V = \{v_{1}, v_{2}, v_{3}, v_{4} \}$，超边集 $E = \{e_{1}, e_{2}\}$，超图内顶点和边的连接方式如图1.31左所示，由此我们可以得到图右的关联矩阵表示。
 
 <center>
-	<img src="../../assets/1.02.3_2.png" width="100%" alt="incidence matrix" />
+	<img src="../assets/1.02.3_2.png" width="100%" alt="incidence matrix" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-7 超图与关联矩阵示例
@@ -141,7 +141,7 @@ $$
 例如，我们在图1-15-8中展示了一个更复杂的博客网站数据库图，它包含三种标签类型的节点：用户User、博客Doc、评论Comment，以及对应的属性。在这个图中，不同标签的节点用不同颜色的圆圈表示，属性用灰色字体表示，唯一标识符用小写字母＋数字表示。我们可以将节点“u1”和“u2”标记为“User”，将节点“d1”标记为“Doc”，将节点“c1”标记为“Comment”。其中，User类节点的相关属性是姓名name、性别gender、邮箱email和加入日期joinDate，Doc类节点的相关属性是标题title、内容content、发表时间publishDate，Comment类节点的相关属性是内容content和评论时间commentDate，LIKES类型的边的相关属性是时间time，WRITES和MAKES_COMMENT类型的边的相关属性是时间time和地址IP，HAS_COMMENT类型的边则没有属性。
 
 <center>
-	<img src="../../assets/1.02.5_1.png" width="100%" alt="LPG model" />
+	<img src="../assets/1.02.5_1.png" width="100%" alt="LPG model" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-8 LPG模型示例
@@ -158,7 +158,7 @@ $$
 [例1.70] 对于如上所示的电影数据库建模的属性图 $G$，我们可以得到 $G=(V, E, \rho, \lambda, \sigma)$，其中 $V、E、\rho、\lambda、\sigma$ 如图R2.09所示。
 
 <center>
-	<img src="../../assets/1.02.5_2.png" width="100%" alt="LPG map" />
+	<img src="../assets/1.02.5_2.png" width="100%" alt="LPG map" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-15-9 LPG模型元素求解示例

@@ -82,7 +82,7 @@
 考虑嵌套之后，文档的结构就变成了树形结构。图1-12-1展示了例1.48和例1.49两个文档的树形结构。在这个结构中，树的根节点代表文档自身，叶子节点代表属性值，中间节点则代表子文档。
 
 <center>
-	<img src="../../assets/chD1.1-doctree.jpg" width="99%" alt="tree image" />
+	<img src="../assets/chD1.1-doctree.jpg" width="99%" alt="tree image" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-12-1文档的树形结构
@@ -215,7 +215,7 @@
 直观判断，它可以和数据库中描述“沐辰”的文档匹配。这个文档设定了属性birthdate的子属性year的取值（简称birthdate.year上的取值）。这个取值正好和“沐辰”的文档在相应属性上的取值一致。如果我们将文档看成树状结构，如果文档A是文档B的匹配，当且仅当B一定能通过对A剪枝而得到。如图1-12-2所示，红色部分的树和整棵树形成匹配，也就是说，红色部分的树可以通过去掉蓝色部分得到。
 
 <center>
-	<img src="../../assets/chD1.1-docmatch.jpg" width="99%" alt="document matches" />
+	<img src="../assets/chD1.1-docmatch.jpg" width="99%" alt="document matches" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 1-12-2 文档的匹配

@@ -7,7 +7,7 @@
 计算机的数据存储体系是一个金字塔结构。下图展示了传统计算机的存储体系结构。最上层是CPU里的寄存器，它是CPU中的计算单元直接获取数据的地方。接下来是高缓存（Cache），用于加速CPU对内存的访问。再下面依次为内存（DRAM）、磁盘和离线存储（通常为磁带或云存储）。这个存储层次结构有一个显著的特点，即越上层的设备存取速度越快，但单位容量的价格越贵。相反地，越下面的设备存取速度越慢，但单位容量的价格越便宜。
 
 <center>
-	<img src="../../assets/storage-hierarchy.JPG" width="70%" alt="storage hierarchy" />
+	<img src="../assets/storage-hierarchy.JPG" width="70%" alt="storage hierarchy" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-1-1 存储体系结构
@@ -24,7 +24,7 @@
 工程师在构建数据存储系统时，常常需要考虑到这种分层存储体系结构的特性，做到物尽其用。这里的基本原则是*让对同一块数据的多次访问尽量集中在相邻的时间发生*。这样有利于形成数据访问的热点。热点数据有利于系统将其放置在上层的高速设备中，从而提升数据访问的整体性能。这个理念被称为**提高数据访问的局部性**。它被普遍应用于数据管理系统的各个技术环节中。
 
 <center>
-	<img src="../../assets/ch2.1-locality.JPG" width="90%" alt="storage hierarchy" />
+	<img src="../assets/ch2.1-locality.JPG" width="90%" alt="storage hierarchy" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-1-2 数据访问局部性示例
@@ -52,7 +52,7 @@
 既然以块为单位的数据访问模式被存储设备普遍采用，数据管理系统就需要充分利用这种模式的特点去提升数据处理性能。通常有两个原则需要被遵循。首先，尽可能**多使用顺序读写，少使用随机读写**。其次，尽可能**将相关的数据存放在相邻的存储空间内**。
 
 <center>
-	<img src="../../assets/ch2.1-sequential.JPG" width="80%" alt="storage hierarchy" />
+	<img src="../assets/ch2.1-sequential.JPG" width="80%" alt="storage hierarchy" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 2-1-3 数据访问的集中性
