@@ -51,7 +51,7 @@ WHERE Student.Sno = SC.Sno AND Student.Sname = '沐辰';
 	<div display: inline-block; padding : 2px>
 		图 3-2-3 查询优化过程
 	</div>
-</enter>
+</center>
 
 
 ## 3.02.2 查询执行模型
