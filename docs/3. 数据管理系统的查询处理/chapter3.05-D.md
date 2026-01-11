@@ -25,36 +25,36 @@ db.student.find({
 	<div display: inline-block; padding : 2px>
 		图 3-5-1 文档数据库find查询的查询处理
 	</div>
-</enter>
+</center>
 
 
 ## 3.05.2 多阶段查询处理（multi-stage）
 
 
-```SQL
-[例3.07] 查询沐辰同学的平均成绩，输出学生学号和平均成绩
+```python
+#[例3.07] 查询沐辰同学的平均成绩，输出学生学号和平均成绩
 db.student.aggregate( [  
-						{
-							$unwind:"$courses" /*将course属性（文档数组形式）展开成多个单独的文档*/
-						},
-						{
-							$match:{
-								"sname":"沐辰"	/*筛选学生名为沐辰的文档*/
-							}
-						},
-    					{
-    						$group:{
-    							"_id":"$sno",   /*按sno属性进行分组*/
-						        "averageGrade":{"$avg":"$courses.grade" /*计算每个分组中所有课程成绩的平均值*/
-    						}
-    					},
-						{
-						    $project:{
-    							"sno":"$_id",
-    							"averageGrade":1
-						     }
-						}
-					] )
+	{
+		$unwind:"$courses" /*将course属性（文档数组形式）展开成多个单独的文档*/
+	},
+	{
+		$match:{
+			"sname":"沐辰"	/*筛选学生名为沐辰的文档*/
+		}
+	},
+	{
+		$group:{
+			"_id":"$sno",   /*按sno属性进行分组*/
+			"averageGrade":{"$avg":"$courses.grade" /*计算每个分组中所有课程成绩的平均值*/
+		}
+	},
+	{
+		$project:{
+			"sno":"$_id",
+			"averageGrade":1
+		 }
+	}
+] )
 ```
 
 文档数据库MongoDB通常将aggregate聚合查询看作多阶段查询处理，聚合查询中的每一个聚合操作看作一个数据处理阶段，所有的数据处理阶段按顺序构成聚合管道（Aggregation Pipeline）。聚合管道是一种流处理模式的计算框架，文档集中的文档逐个依次进入每个数据处理阶段并计算查询结果。
