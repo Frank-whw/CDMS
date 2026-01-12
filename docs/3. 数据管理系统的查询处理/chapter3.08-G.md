@@ -28,7 +28,7 @@ CREATE (A:Location {name: 'A'}),
 ```
 
 <center>
-	<img src="../assets/3.07-1-path.png" width="60%" alt="path finding example" />
+	<img src="../assets/3.7-1-path.png" width="60%" alt="path finding example" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-1 交通网络图
@@ -90,7 +90,7 @@ ORDER BY index
 ## 3.08.2 子图匹配算法
 
 <center>
-	<img src="../assets/3.07-2-subgraph.png" width="100%" alt="subgraph finding example" />
+	<img src="../assets/3.7-2-subgraph.png" width="100%" alt="subgraph finding example" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-2 社交网络图
@@ -100,7 +100,7 @@ ORDER BY index
 子图匹配（Subgraph Matching）算法主要用于解决子图同构问题，即在图中查找与给定模式图同构的⼦图，由于图同构问题是一个NP完全问题，因此子图匹配算法的时间复杂度较高，不同的算法也适用于不同的场景。经典的子图匹配算法主要分为回溯搜索（Backtracking Search）和多路连接搜索（Multi-way Search），回溯算法基于DFS递归搜索目标子图，查询过程中产生的中间结果很少，优化通过剪枝来减少不必要的计算，主要适用于限制返回数量的子图匹配查询；多路连接算法基于BFS逐层展开，其中二元连接（Binary Join）适用于无环和较为稀疏的图，WCO连接（Worst Case Optimal Join）适用于紧密有环图。图3-8-2是一个学生社交网络图，节点表示学生，学生之间存在KNOWS和FOLLOWS的关系。
 
 <center>
-	<img src="../assets/3.07-3-subsearching.png" width="50%" alt="subgraph finding target" />
+	<img src="../assets/3.7-3-subsearching.png" width="50%" alt="subgraph finding target" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-3 子图匹配目标图
@@ -135,7 +135,7 @@ Ullmann子图匹配算法的思想是：基于深度优先搜索，通过回溯�
 Ullmann算法是基于暴力搜索完成的，通过合理的剪枝可以有效减少匹配的矩阵$M$ 数量，如确定 $G_1$ 的第 $i$ 个节点不可能对应到 $G_2$ 的第 $j$ 个顶点，即可设置矩阵 $M$ 的 $m_{ij}=0$；或是当 $G_1$ 某节点的度大于 $G_2$ 中某节点的度，也可以排除情况。结果返回如图3-8-4所示。
 
 <center>
-	<img src="../assets/3.07-8-sub-outcome.png" width="60%" alt="subgraph outcome" />
+	<img src="../assets/3.7-8-sub-outcome.png" width="60%" alt="subgraph outcome" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-4 子图匹配结果图
@@ -145,7 +145,7 @@ Ullmann算法是基于暴力搜索完成的，通过合理的剪枝可以有效�
 ## 3.08.3 社区检测算法
 
 <center>
-	<img src="../assets/3.07-4-community-example.png" width="60%" alt="community detection example" />
+	<img src="../assets/3.7-4-community-example.png" width="60%" alt="community detection example" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-5 社交网络简图
@@ -173,7 +173,7 @@ $$
 Louvain算法的思想是：通过局部移动和社区聚合两阶段的迭代过程来逐步优化各社区的模块度。在局部移动阶段，首先，每个节点在初始化时都为⼀个单独社区，遍历每个节点并将其移动到相邻社区中，使得模块度增益最⾼，直到没有节点移动能够进⼀步提⾼模块度；在社区聚合阶段，将每个社区视为⼀个单独节点，构建新的简化图并重复局部移动的操作。重复第一和第二阶段直到整个图的模块度不再变化或达到最⼤迭代次数，算法停止。Louvain算法第⼀轮迭代计算的过程如图3-8-6所示。
 
 <center>
-	<img src="../assets/3.07-5-louvain.png" width="100%" alt="Louvain example" />
+	<img src="../assets/3.7-5-louvain.png" width="100%" alt="Louvain example" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-6 Louvain算法迭代
@@ -185,7 +185,7 @@ Louvain算法的思想是：通过局部移动和社区聚合两阶段的迭代�
 标签传播算法是一种基于图的半监督学习方法，能够在图形中快速查找到社区，因为它仅使用图的网络结构来检测社区，且不需要预定义的目标函数或有关社区的先验信息。该算法的思想是：通过图的网络结构传播标签，并通过多轮迭代的标签传播过程形成社区。首先，每个节点在初始化时都有唯一的社区标签，在每一次迭代传播中，每个节点都会将标签更新为最多邻居（标签数量相同则随机选择）所属的标签，当每个节点都拥有其邻居的多数标签时，该算法达到收敛，该算法在达到收敛或用户定义的最大迭代次数时停止，具有相同标签的节点属于同一社区。实际的标签传播算法步骤如图3-8-7所示。标签传播算法的时间复杂度近乎线性，对于具有明显社区结构的网络效果较好，但是存在高随机性和不稳定性等问题。
 
 <center>
-	<img src="../assets/3.07-6-label-propa.png" width="100%" alt="label propagation example" />
+	<img src="../assets/3.7-6-label-propa.png" width="100%" alt="label propagation example" />
 	<br>
 	<div display: inline-block; padding : 2px>
 		图 3-8-7 标签传播示例
